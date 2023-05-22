@@ -1,1 +1,10 @@
 /* below the fold CSS goes here */
+
+@font-face{
+    font-family: 'ASPREY-ALPHABET';
+    src: url('../fonts/asprey-alphabet.eot');
+    src: url('../fonts/asprey-alphabet.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/asprey-alphabet.woff') format('woff'),
+    url('../fonts/asprey-alphabet.ttf') format('truetype');
+    font-display: swap;
+}
