@@ -1,14 +1,22 @@
 footer {
-  padding: 2rem;
-  background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+  padding-bottom: 55px;
+  padding-top: 55px;
+  background-color: var(--footer-background-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  color: var(--footer-text-color);
 }
 
 footer .footer {
   max-width: 1200px;
   margin: auto;
+  margin-left: 16.666%;
+  width: 66.666%;
 }
 
 footer .footer p {
   margin: 0;
+  text-align: center;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
