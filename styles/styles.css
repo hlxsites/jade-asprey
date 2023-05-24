@@ -1,55 +1,22 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
- :root {
-  /* colors */
-  /* --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: #fff;
-  --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
-  --text-color: #000; */
-
-  /* fonts */
-  /* --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
-  --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace; */
-
-  /* FROM SITE */
-
-
-  /* fonts */
---heading-font-family: ASPREY-ALPHABET, Arial, sans-serif;
---body-font-family: "Gill Sans", "Gill Sans MT", gill-sans-nova, Calibri, sans-serif;
+:root {
+/* fonts */
+--heading-font-family: "asprey-alphabet", "arial", sans-serif;
+--body-font-family: "Gill Sans", "Gill Sans MT", gill-sans-nova, calibri, sans-serif;
 --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
 
 /* colors */
-/* --text-color: #202020; */
---text-color: #817C89;
---link-color: #440055;
---link-hover-color: #440055;
---heading-color: #440055;
---background-color: #ffffff;
+--color-gray: #817C89;
+--color-deep-violet: #405;
+--background-color: #FFF;
 --highlight-text-color: #000;
---overlay-background-color: #eeeeee;
+--overlay-background-color: #eee;
 --highlight-background-color: #f7f9f9;
 --footer-background-color: #2B0E43;
 --footer-text-color: #F7F9F9;
 --asprey-purple-background-color: #405;
 --asprey-text-color: #F7F9F9;
 --button-background-color: #2b0e43;
---button-text-color: #FFFFFF;
-
-
+--button-text-color: #FFF;
 
 /* sizes */
 --heading-font-size-xxl: 60px;
@@ -82,14 +49,21 @@
   }
 }
 
+* {
+  font-family: var(--body-font-family);    
+  box-sizing: border-box;
+  text-shadow: none;
+}
+
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
   font-family: var(--body-font-family);
-  line-height: 1.6;
-  color: var(--text-color);
+  line-height: 1.5;
+  color: var(--color-gray);
   background-color: var(--background-color);
   display: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
@@ -100,38 +74,57 @@ header {
   height: var(--nav-height);
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-  font-family: var(--heading-font-family);
-  font-weight: 400;
-  line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
-  scroll-margin: calc(var(--nav-height) + 1em);
-  color: var(--heading-color);
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: .2em;
+a {
+    color: var(--color-deep-violet);
 }
 
-h1 { 
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, p.h1, p.h2, p.h3, p.h4, p.h5, p.h6 {
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    color: var(--color-deep-violet);
+    font-family: var(--heading-font-family);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+h1, h1 a {
   font-size: var(--heading-font-size-l);
 }
 
-h2 { 
-  font-size: var(--heading-font-size-xl);
-
+h2, h2 a {
+    font-size: 22px;
 }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+
+h3, h3 a {
+    font-size: 20px;
+}
+
+h4, h4 a {
+    font-size: var(--heading-font-size-m) 
+}
+
+h5, h5 a, h6, h6 a {
+    font-size: var(--heading-font-size-s) 
+}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
   font-weight: 400;
   line-height: 1.2;
+}
+
+li, p, strong {
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    color: var(--color-gray);
+    font-family: "Gill Sans", "Gill Sans MT", gill-sans-nova, Calibri, sans-serif;
+    font-size: var(--body-font-size-m);
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 hr {
@@ -163,13 +156,13 @@ main pre {
 }
 
 a:any-link {
-  color: var(--link-color);
+  color: var(--color-deep-violet);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--link-hover-color);
+  color: var(--color-deep-violet);
 }
 
 /* buttons */
@@ -177,7 +170,6 @@ a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
-  text-decoration: none;
   border: 2px solid transparent;
   padding: 5px 30px;
   text-align: center;
@@ -185,7 +177,7 @@ a.button:any-link, button {
   font-weight: 600;
   cursor: pointer;
   color: var(--background-color);
-  background-color: var(--link-color);
+  background-color: var(--color-deep-violet);
   margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
@@ -195,7 +187,7 @@ a.button:any-link, button {
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+  background-color: var(--color-deep-violet);
   cursor: pointer;
 }
 
@@ -203,6 +195,7 @@ button:disabled, button:disabled:hover {
   background-color: var(--overlay-background-color);
   cursor: unset;
 }
+
 a.button.primary, button.primary {
   background-color: var(--button-background-color);
   border: 1px solid transparent;
@@ -219,7 +212,7 @@ a.button.primary, button.primary {
 a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
-  color: var(--text-color)
+  color: var(--color-gray)
 }
 
 main input {
@@ -231,13 +224,13 @@ main input {
   padding: 0.75rem 0.6rem;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
+  border: 1px solid var(--color-gray);
+  color: var(--color-gray);
   background-color: var(--background-color);
 }
 
 main input:hover {
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--color-gray);
 }
 
 main blockquote {
@@ -284,7 +277,7 @@ main img {
   }
 } */
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
   .section > div {
     /* max-width: 1200px; */
     margin: auto;
@@ -300,12 +293,22 @@ main .section.highlight {
 main .section.highlight h1 { 
   font-size: var(--heading-font-size-xxl); 
   word-spacing: 9999rem;
+  line-height: 1.2;
+}
+
+.inquire .columns >div >div >p {
+    text-align: left;
+    margin-left: 75px;
+}
+
+.section.highlight .columns >div >div >p:nth-child(2) {
+    color: #000;
 }
 
 main .section.highlight a.button.primary, button.primary {
   background-color: transparent;
-  color: var(--link-color);
-  border-color: var(--link-color);
+  color: var(--color-deep-violet);
+  border-color: var(--color-deep-violet);
 }
 
 main .section.deep-background {
@@ -322,11 +325,47 @@ main .section.deep-background a.button.primary, button.primary {
   color: var(--highlight-background-color);
   border-color: var(--highlight-background-color);
 }
+
 main .section.narrow {
   text-align: center;
   width: 720px;
   display: inline;
 }
+
 main .section.narrow h1 { 
   font-size: var(--heading-font-size-l); 
+}
+
+.description .columns >div >div:first-child {
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+.description h2 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+}
+
+.deep-background .columns >div >div:last-child {
+    padding-left: 75px;
+    padding-right: 75px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: left;
+}
+
+.inquire .columns >div >div >h3 {
+    font-size: 30px;
+    font-weight: 400!important;
+    max-width: none;
+    margin-left: 75px;
+    margin-right: 75px;
+    text-align: left;
+}
+
+.inquire .columns >div >div >p >a {
+    margin-top: 0;
 }

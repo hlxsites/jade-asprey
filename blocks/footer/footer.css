@@ -15,6 +15,7 @@ footer .footer {
 }
 
 footer .footer p {
+  color: var(--highlight-background-color);
   margin: 0;
   text-align: center;
   margin-block-start: 1em;
