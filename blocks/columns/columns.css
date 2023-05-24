@@ -30,13 +30,13 @@
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .columns > div > .columns-img-col {
     order: 2;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -44,6 +44,7 @@
 
   .columns > div > div {
     flex: 1 0 50%;
+    width: 50%;
     order: unset;
     order: 2;
   }

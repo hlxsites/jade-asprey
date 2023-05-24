@@ -10,6 +10,7 @@ header nav {
   justify-content: center;
   align-items: center;
   max-width: 1264px;
+  margin: 0 auto;
   height: var(--nav-height);
   font-family: var(--body-font-family);
 }
@@ -93,7 +94,7 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
   header nav .nav-sections {
     visibility: visible;
     white-space: nowrap;

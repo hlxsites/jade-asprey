@@ -277,7 +277,7 @@ main img {
   }
 } */
 
-@media (min-width: 900px) {
+@media (min-width: 600px) {
   .section > div {
     /* max-width: 1200px; */
     margin: auto;
