@@ -1,6 +1,7 @@
 function createSelect(fd) {
   const select = document.createElement('select');
-  select.id = fd.Field;
+  select.id = fd.Field_Id;
+  select.name = fd.Field;
   if (fd.Placeholder) {
     const ph = document.createElement('option');
     ph.textContent = fd.Placeholder;
@@ -24,9 +25,9 @@ function constructPayload(form) {
   const payload = {};
   [...form.elements].forEach((fe) => {
     if (fe.type === 'checkbox') {
-      if (fe.checked) payload[fe.id] = fe.value;
-    } else if (fe.id) {
-      payload[fe.id] = fe.value;
+      if (fe.checked) payload[fe.name] = fe.value;
+    } else if (fe.name) {
+      payload[fe.name] = fe.value;
     }
   });
   return payload;
@@ -57,8 +58,14 @@ function createButton(fd) {
         event.preventDefault();
         button.setAttribute('disabled', '');
         await submitForm(form);
-        const redirectTo = fd.Extra;
-        window.location.href = redirectTo;
+        const success = form.closest('.form.block').querySelector('.form-success');
+        if (success) {
+          success.classList.remove('hidden');
+          form.closest('.form.block').querySelector('.button-container').classList.add('hidden');
+        } else {
+          const redirectTo = fd.Extra;
+          window.location.href = redirectTo;  
+        }
       }
     });
   }
@@ -66,6 +73,12 @@ function createButton(fd) {
 }
 
 function createHeading(fd) {
+  if (fd.Style && fd.Style === 'p') {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = fd.Label;
+    return paragraph;
+
+  } 
   const heading = document.createElement('h3');
   heading.textContent = fd.Label;
   return heading;
@@ -74,7 +87,8 @@ function createHeading(fd) {
 function createInput(fd) {
   const input = document.createElement('input');
   input.type = fd.Type;
-  input.id = fd.Field;
+  input.id = fd.Field_Id;
+  input.name = fd.Field;
   input.setAttribute('placeholder', fd.Placeholder);
   if (fd.Mandatory === 'x') {
     input.setAttribute('required', 'required');
@@ -84,7 +98,8 @@ function createInput(fd) {
 
 function createTextArea(fd) {
   const input = document.createElement('textarea');
-  input.id = fd.Field;
+  input.id = fd.Field_Id;
+  input.name = fd.Field;
   input.setAttribute('placeholder', fd.Placeholder);
   if (fd.Mandatory === 'x') {
     input.setAttribute('required', 'required');
@@ -94,8 +109,9 @@ function createTextArea(fd) {
 
 function createLabel(fd) {
   const label = document.createElement('label');
-  label.setAttribute('for', fd.Field);
+  label.setAttribute('for', fd.Field_Id ? fd.Field_Id : fd.Field);
   label.textContent = fd.Label;
+  label.setAttribute('hidden', 'hidden'); 
   if (fd.Mandatory === 'x') {
     label.classList.add('required');
   }
@@ -178,5 +194,11 @@ export default async function decorate(block) {
   const form = block.querySelector('a[href$=".json"]');
   if (form) {
     form.replaceWith(await createForm(form.href));
+  }
+  console.log(block);
+  const successDiv = block.querySelector('div>div:nth-child(2)');
+  if (successDiv) {
+    successDiv.classList.add('form-success');
+    successDiv.classList.add('hidden');
   }
 }
