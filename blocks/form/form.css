@@ -112,6 +112,7 @@ main .form .form-submit-wrapper {
 main .form div.form-success.hidden {
   display: none;
 }
+
 main .form div.button-container.hidden {
   display: none;
 }
