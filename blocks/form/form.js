@@ -64,7 +64,7 @@ function createButton(fd) {
           form.closest('.form.block').querySelector('.button-container').classList.add('hidden');
         } else {
           const redirectTo = fd.Extra;
-          window.location.href = redirectTo;  
+          window.location.href = redirectTo;
         }
       }
     });
@@ -77,8 +77,7 @@ function createHeading(fd) {
     const paragraph = document.createElement('p');
     paragraph.textContent = fd.Label;
     return paragraph;
-
-  } 
+  }
   const heading = document.createElement('h3');
   heading.textContent = fd.Label;
   return heading;
@@ -111,7 +110,7 @@ function createLabel(fd) {
   const label = document.createElement('label');
   label.setAttribute('for', fd.Field_Id ? fd.Field_Id : fd.Field);
   label.textContent = fd.Label;
-  label.setAttribute('hidden', 'hidden'); 
+  label.setAttribute('hidden', 'hidden');
   if (fd.Mandatory === 'x') {
     label.classList.add('required');
   }
@@ -195,7 +194,6 @@ export default async function decorate(block) {
   if (form) {
     form.replaceWith(await createForm(form.href));
   }
-  console.log(block);
   const successDiv = block.querySelector('div>div:nth-child(2)');
   if (successDiv) {
     successDiv.classList.add('form-success');
