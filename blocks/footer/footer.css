@@ -1,10 +1,17 @@
 footer {
-  padding-bottom: 55px;
-  padding-top: 55px;
+  padding-bottom: 25px;
+  padding-top: 25px;
   background-color: var(--footer-background-color);
   font-size: var(--body-font-size-m);
   font-weight: 400;
   color: var(--footer-text-color);
+}
+
+@media screen and (min-width: 601px) {
+    footer {
+        padding-bottom: 55px;
+        padding-top: 55px;
+    }
 }
 
 footer .footer {

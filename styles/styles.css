@@ -36,6 +36,10 @@
   /* nav height */
   --nav-height: 210px;
 
+  /* Common margin/padding value */
+  --layout-margin-large: 75px;
+  --layout-margin-small: 32px;
+
 }
 
 @media (min-width: 900px) {
@@ -298,7 +302,53 @@ main .section.highlight h1 {
 
 .inquire .columns >div >div >p {
     text-align: left;
-    margin-left: 75px;
+    margin-left: var(--layout-margin-small);
+}
+
+@media screen and (min-width: 601px) {
+    .inquire .columns >div >div >p {
+        margin-left: var(--layout-margin-large);
+    }
+}
+
+.aboutus-highlight .columns >div >div >p {
+    color: var(--highlight-text-color);
+    margin-left: var(--layout-margin-small);
+    margin-right: var(--layout-margin-small);
+}
+
+.column-light .columns >div >div >h3,
+.column-light .columns >div >div >h5,
+.column-light .columns >div >div >p {
+    margin-left: var(--layout-margin-small);
+    margin-right: var(--layout-margin-small);
+}
+
+@media screen and (min-width: 601px) {
+    .column-light .columns >div >div >h3,
+    .column-light .columns >div >div >h5,
+    .column-light .columns >div >div >p {
+        margin-left: var(--layout-margin-large);
+        margin-right: var(--layout-margin-large);
+    }
+}
+
+.deep-background .columns >div >div:not(.columns-img-col) >p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: center;
+    margin: 18px var(--layout-margin-small);
+}
+
+.deep-background-special .columns >div >div:not(.columns-img-col) >p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: center;
+    margin: 18px var(--layout-margin-small);
 }
 
 .section.highlight .columns >div >div >p:nth-child(2) {
@@ -326,6 +376,21 @@ main .section.deep-background a.button.primary, button.primary {
   border-color: var(--highlight-background-color);
 }
 
+main .section.deep-background-special {
+  background-color: var(--asprey-purple-background-color);
+  color: var(--asprey-text-color);
+}
+
+main .section.deep-background-special h1 {
+  color: var(--asprey-text-color);
+}
+
+main .section.deep-background-special a.button.primary, button.primary {
+  background-color: transparent;
+  color: var(--highlight-background-color);
+  border-color: var(--highlight-background-color);
+}
+
 main .section.narrow {
   text-align: center;
   width: 720px;
@@ -336,9 +401,20 @@ main .section.narrow h1 {
   font-size: var(--heading-font-size-l); 
 }
 
+.aboutus-highlight .columns >div {
+    background-color: var(--highlight-background-color);
+}
+
 .description .columns >div >div:first-child {
-    padding-left: 75px;
-    padding-right: 75px;
+    padding-left: var(--layout-margin-small);
+    padding-right: var(--layout-margin-small);
+}
+
+@media screen and (min-width: 601px) {
+    .description .columns >div >div:first-child {
+        padding-left: var(--layout-margin-large);
+        padding-right: var(--layout-margin-large);
+    }
 }
 
 .description h2 {
@@ -347,9 +423,7 @@ main .section.narrow h1 {
     max-width: none;
 }
 
-.deep-background .columns >div >div:last-child {
-    padding-left: 75px;
-    padding-right: 75px;
+.deep-background .columns >div >div:not(.columns-img-col) {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.2;
@@ -357,15 +431,111 @@ main .section.narrow h1 {
     text-align: left;
 }
 
+@media screen and (min-width: 601px) {
+    .deep-background .columns >div >div:not(.columns-img-col) >p {
+        margin: 18px var(--layout-margin-large);
+    }
+}
+
+.deep-background .columns >div >div:not(.columns-img-col) >h4 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+    margin: 40px var(--layout-margin-small);
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: center;
+}
+
+.deep-background-special .columns >div >div:not(.columns-img-col) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: left;
+}
+
+@media screen and (min-width: 601px) {
+    .deep-background-special .columns >div >div:not(.columns-img-col) >p {
+        margin: 18px var(--layout-margin-large);
+    }
+}
+
+.deep-background-special .columns >div >div:not(.columns-img-col) >h4 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+    margin: 40px var(--layout-margin-small);
+    line-height: 1.2;
+    color: var(--highlight-background-color);
+    text-align: center;
+}
+
+
+@media screen and (min-width: 601px) {
+    .deep-background-special .columns >div >div:not(.columns-img-col) >h4 {
+        margin: 40px var(--layout-margin-large);
+    }
+}
+
+.deep-background-special .columns > div > div:last-child {
+    margin-left: var(--layout-margin-small);
+    margin-right: var(--layout-margin-small);
+}
+
+@media screen and (min-width: 601px) {
+    .deep-background-special .columns > div > div:last-child {
+        flex: 1 0 calc(50% - (var(--layout-margin-large) * 2));
+        width: calc(50% - (var(--layout-margin-large) * 2));
+        margin-left: var(--layout-margin-large);
+        margin-right: var(--layout-margin-large);
+    }
+}
+
 .inquire .columns >div >div >h3 {
     font-size: 30px;
     font-weight: 400!important;
     max-width: none;
-    margin-left: 75px;
-    margin-right: 75px;
     text-align: left;
+    margin-left: var(--layout-margin-small);
+    margin-right: var(--layout-margin-small);
+}
+
+@media screen and (min-width: 601px) {
+    .inquire .columns >div >div >h3 {
+        margin-left: var(--layout-margin-large);
+        margin-right: var(--layout-margin-large);
+    }
 }
 
 .inquire .columns >div >div >p >a {
     margin-top: 0;
+}
+
+.aboutus-highlight .columns >div >div >h2 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+    margin-left: var(--layout-margin-large);
+    margin-right: var(--layout-margin-large);
+}
+
+@media screen and (min-width: 601px) {
+    .aboutus-highlight .columns >div >div >p {
+        margin-left: var(--layout-margin-large);
+        margin-right: var(--layout-margin-large);
+    }
+}
+
+.aboutus-highlight .columns >div >div >p a {
+    background-color: transparent;
+    border-color: var(--button-background-color);
+    color: var(--button-background-color);
+}
+
+.column-light .columns >div >div >h3,
+.column-light .columns >div >div >h5 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
 }
