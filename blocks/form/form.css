@@ -94,15 +94,15 @@ main .form .form-checkbox-wrapper label {
 
 main .form .button {
   cursor: pointer;
-  background: rgb(48, 59, 67);
-  border-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background: #303b43;
+  border-color: #000;
+  color: #fff;
   border-radius: 4px;
   border-width: 2px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   line-height: 1;
   white-space: normal;
   padding: 0;
