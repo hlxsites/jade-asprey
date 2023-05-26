@@ -38,16 +38,15 @@ main .form select:hover {
   border-color: rgb(90 92 96);
 }
 
-main .form label {
+/* main .form label {
   width: 100%;
-  display: block;
   font-size: var(--type-body-s-size);
   line-height: var(--type-body-s-lh);
   padding-bottom: var(--spacing-xs);
   text-transform: uppercase;
   box-sizing: border-box;
   font-weight: 800;
-}
+} */
 
 main .form label.required::after {
   content: "*";
@@ -108,4 +107,12 @@ main .form .button {
 main .form .form-submit-wrapper {
   display: flex;
   justify-content: flex-end;
+}
+
+main .form div.form-success.hidden {
+  display: none;
+}
+
+main .form div.button-container.hidden {
+  display: none;
 }
