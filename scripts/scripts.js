@@ -180,7 +180,7 @@ export function attachClickEventListener(element) {
   element.addEventListener('click', addClickToDataLayer);
 }
 
-function onDocumentReady() {
+export async function onDocumentReady() {
   window.dataLayer = window.dataLayer || [];
   const { dataLayer } = window;
   const clickableElements = document.querySelectorAll('[data-cmp-clickable]');
@@ -188,10 +188,4 @@ function onDocumentReady() {
     attachClickEventListener(element);
   });
   dataLayer.push(getPageEventData());
-}
-
-if (document.readyState !== 'loading') {
-  onDocumentReady();
-} else {
-  document.addEventListener('DOMContentLoaded', onDocumentReady);
 }
