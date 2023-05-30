@@ -140,7 +140,7 @@ function getPageName() {
   };
 }
 
-export async function getPageEventData() {
+function getPageEventData() {
   const { pageName } = getPageName();
   return {
     event: 'page_view',
@@ -187,9 +187,7 @@ function onDocumentReady() {
   clickableElements.forEach((element) => {
     attachClickEventListener(element);
   });
-  dataLayer.push({
-    event: 'cmp:loaded',
-  });
+  dataLayer.push(getPageEventData());
 }
 
 if (document.readyState !== 'loading') {
