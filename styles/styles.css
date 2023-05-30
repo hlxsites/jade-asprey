@@ -317,6 +317,12 @@ main .section.highlight h1 {
     margin-right: var(--layout-margin-small);
 }
 
+.description h2 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+}
+
 .column-light .columns >div >div >h2,
 .column-light .columns >div >div >h3,
 .column-light .columns >div >div >h5,
@@ -426,12 +432,6 @@ main .section.narrow h1 {
         padding-left: var(--layout-margin-large);
         padding-right: var(--layout-margin-large);
     }
-}
-
-.description h2 {
-    font-size: 30px;
-    font-weight: 400;
-    max-width: none;
 }
 
 .deep-background .columns >div >div:not(.columns-img-col) {
