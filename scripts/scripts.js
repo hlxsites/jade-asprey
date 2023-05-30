@@ -148,3 +148,52 @@ export async function getPageEventData() {
     pageUrl: window.location.href,
   };
 }
+
+// function getComponentData(element) {
+//   var dataLayerJson = element.dataset.cmpDataLayer;
+//   if (dataLayerJson)
+//       return JSON.parse(dataLayerJson);
+//   else
+//       return undefined
+// }
+
+function getClickId(element) {
+  if (element.dataset.cmpDataLayer) {
+    return Object.keys(JSON.parse(element.dataset.cmpDataLayer))[0];
+  }
+  const componentElement = element.closest('[data-cmp-data-layer]');
+  return Object.keys(JSON.parse(componentElement.dataset.cmpDataLayer))[0];
+}
+
+function addClickToDataLayer(event) {
+  const element = event.currentTarget;
+  const componentId = getClickId(element);
+  window.dataLayer.push({
+    event: 'cmp:click',
+    eventInfo: {
+      path: `component.${componentId}`,
+    },
+  });
+}
+
+export function attachClickEventListener(element) {
+  element.addEventListener('click', addClickToDataLayer);
+}
+
+function onDocumentReady() {
+  window.dataLayer = window.dataLayer || [];
+  const { dataLayer } = window;
+  const clickableElements = document.querySelectorAll('[data-cmp-clickable]');
+  clickableElements.forEach((element) => {
+    attachClickEventListener(element);
+  });
+  dataLayer.push({
+    event: 'cmp:loaded',
+  });
+}
+
+if (document.readyState !== 'loading') {
+  onDocumentReady();
+} else {
+  document.addEventListener('DOMContentLoaded', onDocumentReady);
+}

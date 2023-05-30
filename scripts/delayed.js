@@ -22,7 +22,7 @@ function gtag(...args) {
 
 async function pageViewDataPush() {
   const pageData = await getPageEventData();
-  gtag(pageData);
+  window.dataLayer.push(pageData);
 }
 
 gtag('js', new Date());
