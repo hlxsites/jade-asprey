@@ -145,6 +145,6 @@ export async function getPageEventData() {
   return {
     event: 'page_view',
     pageName,
-    pageUrl: window.location.href
+    pageUrl: window.location.href,
   };
 }
