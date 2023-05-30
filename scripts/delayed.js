@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { sampleRUM } from './lib-franklin.js';
-import {getPageEventData, sendAnalyticsPageEvent} from './scripts.js';
+import {getPageEventData} from './scripts.js';
 const gtm_id = 'G-FTH98G1LJR';
 
 // Core Web Vitals RUM collection
