@@ -317,6 +317,13 @@ main .section.highlight h1 {
     margin-right: var(--layout-margin-small);
 }
 
+.description h2 {
+    font-size: 30px;
+    font-weight: 400;
+    max-width: none;
+}
+
+.column-light .columns >div >div >h2,
 .column-light .columns >div >div >h3,
 .column-light .columns >div >div >h5,
 .column-light .columns >div >div >p {
@@ -325,6 +332,7 @@ main .section.highlight h1 {
 }
 
 @media screen and (min-width: 601px) {
+    .column-light .columns >div >div >h2,
     .column-light .columns >div >div >h3,
     .column-light .columns >div >div >h5,
     .column-light .columns >div >div >p {
@@ -368,6 +376,15 @@ main .section.deep-background {
 
 main .section.deep-background h1 {
   color: var(--asprey-text-color);
+  font-size: 42px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media screen and (min-width: 601px) {
+    main .section.deep-background h1 {
+        font-size: 60px;
+    }
 }
 
 main .section.deep-background a.button.primary, button.primary {
@@ -418,12 +435,6 @@ main .section.narrow h1 {
         padding-left: var(--layout-margin-large);
         padding-right: var(--layout-margin-large);
     }
-}
-
-.description h2 {
-    font-size: 30px;
-    font-weight: 400;
-    max-width: none;
 }
 
 .deep-background .columns >div >div:not(.columns-img-col) {
@@ -536,6 +547,7 @@ main .section.narrow h1 {
     color: var(--button-background-color);
 }
 
+.column-light .columns >div >div >h2,
 .column-light .columns >div >div >h3,
 .column-light .columns >div >div >h5 {
     font-size: 30px;
