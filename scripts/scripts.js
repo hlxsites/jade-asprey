@@ -128,3 +128,27 @@ async function loadPage() {
 }
 
 loadPage();
+
+function getPageName() {
+  const pageSectionParts = window.location.pathname.split('/').filter((subPath) => subPath !== '');
+  const pageName = pageSectionParts.join(':');
+  const finalPageName = pageName === '' ? 'Home' : pageName;
+
+  return {
+    pageName: finalPageName,
+    sections: pageSectionParts,
+  };
+}
+
+export async function sendAnalyticsPageEvent() {
+  window.dataLayer = window.dataLayer || [];
+  const dl = window.dataLayer;
+  const placeholders = await fetchPlaceholders();
+  
+  const { pageName } = getPageName();
+  dl.push({
+    event: 'page_view',
+    pageName,
+    pageUrl: window.location.href
+  });
+}
