@@ -392,9 +392,12 @@ main .section.deep-background-special a.button.primary, button.primary {
 }
 
 main .section.narrow {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   text-align: center;
-  width: 720px;
-  display: inline;
+  width: 100%;
+  padding: 10px 5px;
 }
 
 main .section.narrow h1 { 
