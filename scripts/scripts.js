@@ -140,15 +140,11 @@ function getPageName() {
   };
 }
 
-export async function sendAnalyticsPageEvent() {
-  window.dataLayer = window.dataLayer || [];
-  const dl = window.dataLayer;
-  const placeholders = await fetchPlaceholders();
-  
+export async function getPageEventData() {
   const { pageName } = getPageName();
-  dl.push({
+  return {
     event: 'page_view',
     pageName,
     pageUrl: window.location.href
-  });
+  };
 }
