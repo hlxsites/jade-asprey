@@ -128,3 +128,23 @@ async function loadPage() {
 }
 
 loadPage();
+
+function getPageName() {
+  const pageSectionParts = window.location.pathname.split('/').filter((subPath) => subPath !== '');
+  const pageName = pageSectionParts.join(':');
+  const finalPageName = pageName === '' ? 'Home' : pageName;
+
+  return {
+    pageName: finalPageName,
+    sections: pageSectionParts,
+  };
+}
+
+export async function getPageEventData() {
+  const { pageName } = getPageName();
+  return {
+    event: 'page_view',
+    pageName,
+    pageUrl: window.location.href,
+  };
+}
