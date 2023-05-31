@@ -21,6 +21,48 @@ function createSelect(fd) {
   return select;
 }
 
+function validateField(fe) {
+  fe.checkValidity();
+  if (fe.type === 'checkbox') {
+    const formData = new FormData(document.querySelector('form'));
+    [...fe.form.elements].forEach((fe2) => {
+      if (fe.name === fe2.name) {
+        if (!formData.has(fe.name)) {
+          fe2.setCustomValidity('Please check this box if you want to proceed');
+          fe2.setAttribute('aria-invalid', true);
+        } else {
+          fe2.setCustomValidity('');
+          fe2.removeAttribute('aria-invalid');
+        }
+      }
+    });
+  } else if (fe.validity.patternMismatch) {
+    fe.setCustomValidity('Please enter a value');
+  }
+}
+
+function validate(form) {
+  const invalid = [];
+  [...form.elements].forEach((fe) => {
+    fe.checkValidity();
+    if (fe.type === 'checkbox') {
+      const formData = new FormData(document.querySelector('form'));
+      if (!formData.has(fe.name)) {
+        invalid.push(fe);
+        fe.setCustomValidity('Please check this box if you want to proceed');
+        fe.setAttribute('aria-invalid', true);
+      } else {
+        fe.setCustomValidity('');
+        fe.removeAttribute('aria-invalid');
+      }
+    } else if (fe.validity.patternMismatch) {
+      invalid.push(fe);
+      fe.setCustomValidity('Please enter a value');
+    }
+  });
+  return invalid;
+}
+
 function constructPayload(form) {
   const payload = {};
   [...form.elements].forEach((fe) => {
@@ -34,6 +76,14 @@ function constructPayload(form) {
 }
 
 async function submitForm(form) {
+  const button = form.querySelector('.form-submit-wrapper button');
+  button.setAttribute('disabled', '');
+
+  const invalid = validate(form);
+  if (invalid && invalid.length > 0) {
+    button.removeAttribute('disabled');
+    return false;
+  }
   const payload = constructPayload(form);
   const resp = await fetch(form.dataset.action, {
     method: 'POST',
@@ -56,15 +106,16 @@ function createButton(fd) {
       const form = button.closest('form');
       if (form.checkValidity()) {
         event.preventDefault();
-        button.setAttribute('disabled', '');
-        await submitForm(form);
-        const success = form.closest('.form.block').querySelector('.form-success');
-        if (success) {
-          success.classList.remove('hidden');
-          form.closest('.form.block').querySelector('.button-container').classList.add('hidden');
-        } else {
-          const redirectTo = fd.Extra;
-          window.location.href = redirectTo;
+        const status = await submitForm(form);
+        if (status) {
+          const success = form.closest('.form.block').querySelector('.form-success');
+          if (success) {
+            success.classList.remove('hidden');
+            form.closest('.form.block').querySelector('.button-container').classList.add('hidden');
+          } else {
+            const redirectTo = fd.Extra;
+            window.location.href = redirectTo;
+          }
         }
       }
     });
@@ -88,10 +139,20 @@ function createInput(fd) {
   input.type = fd.Type;
   input.id = fd.Field_Id;
   input.name = fd.Field;
+  if (fd.Pattern) {
+    input.setAttribute('pattern', fd.Pattern);
+  }
+  if (fd.Extra) {
+    input.setAttribute('oninvalid', `this.setCustomValidity('${fd.Extra}')`);
+    input.setAttribute('oninput', 'this.setCustomValidity(\'\')');
+  }
   input.setAttribute('placeholder', fd.Placeholder);
   if (fd.Mandatory === 'x') {
     input.setAttribute('required', 'required');
   }
+  input.addEventListener('input', (event) => {
+    validateField(event.target);
+  });
   return input;
 }
 

@@ -6,8 +6,8 @@
 		<g id="checkbox-on-checkbox_inner_%24consent__4__7"
 			>
 			<rect stroke-width="1" x="0.5" y="0.5" width="19" height="19" rx="2.22222222"
-                fill="#FFFFFF" stroke="#000000"></rect>
-			<g transform="translate(3.000000, 4.000000)" fill="#303B43">
+                fill="#FFFFFF" stroke="#FF0000"></rect>
+			<g transform="translate(3.000000, 4.000000)" fill="#FF0000">
 				<polygon id="shape-checkbox_inner_%24consent__4__7" fill="#000000"
 				points="4.45454545 9.20149254 1.11363636 5.75373134 0 6.90298507 4.45454545 11.5 14 1.64925373 12.8863636 0.5"></polygon>
 			</g>

@@ -6,6 +6,7 @@
 
 /* colors */
 --color-gray: #817C89;
+--color-black: #000;
 --color-deep-violet: #405;
 --background-color: #FFF;
 --highlight-text-color: #000;
@@ -161,7 +162,6 @@ main pre {
 
 a:any-link {
   color: var(--color-deep-violet);
-  text-decoration: none;
 }
 
 a:hover {
