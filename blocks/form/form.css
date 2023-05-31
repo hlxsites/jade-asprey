@@ -16,6 +16,10 @@ main .form h3 {
   text-transform: uppercase;
 }
 
+input:invalid {
+  outline: 1px solid red;
+}
+
 main .form input,
 main .form textarea,
 main .form select {
@@ -70,10 +74,6 @@ main .form .form-checkbox-wrapper input[type='checkbox'] {
   display: none;
 }
 
-main .form .form-checkbox-wrapper input[type='checkbox'][aria-invalid='true'] + label::before {
-  background-image: url('./checkbox-invalid.svg');
-}
-
 main .form .form-checkbox-wrapper input[type='checkbox'] + label::before {
   float: left;
   margin-top: 2px;
@@ -83,6 +83,10 @@ main .form .form-checkbox-wrapper input[type='checkbox'] + label::before {
   content: ' ';
   background-image: url('./checkbox.svg');
   background-size: contain;
+}
+
+main .form .form-checkbox-wrapper input[type='checkbox'][aria-invalid='true'] + label::before {
+  background-image: url('./checkbox-invalid.svg');
 }
 
 main .form .form-checkbox-wrapper input[type='checkbox']:checked +label::before {
@@ -135,6 +139,3 @@ main .form div.button-container.hidden {
   display: none;
 }
 
-input:invalid {
-  outline: 1px solid red;
-}
