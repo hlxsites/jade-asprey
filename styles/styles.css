@@ -376,14 +376,18 @@ main .section.deep-background {
 
 main .section.deep-background h1 {
   color: var(--asprey-text-color);
-  font-size: 42px;
+  font-size: 60px;
   line-height: 1.2;
   text-align: center;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
 @media screen and (min-width: 601px) {
     main .section.deep-background h1 {
         font-size: 60px;
+        margin-left: 72px;
+        margin-right: 72px;
     }
 }
 
