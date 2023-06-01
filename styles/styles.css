@@ -6,6 +6,7 @@
 
 /* colors */
 --color-gray: #817C89;
+--color-accessible-gray: #5A585F;
 --color-black: #000;
 --color-deep-violet: #405;
 --background-color: #FFF;
@@ -432,6 +433,10 @@ main .section.narrow h1 {
 .description .columns >div >div:first-child {
     padding-left: var(--layout-margin-small);
     padding-right: var(--layout-margin-small);
+}
+
+.description .columns >div >div:first-child >p {
+    color: var(--color-accessible-gray);
 }
 
 @media screen and (min-width: 601px) {
