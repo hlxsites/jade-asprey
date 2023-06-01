@@ -15,7 +15,7 @@ header nav {
   font-family: var(--body-font-family);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 620px) {
   header nav {
     padding: 0 2rem;
   }
@@ -94,7 +94,7 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 620px) {
   header nav .nav-sections {
     visibility: visible;
     white-space: nowrap;
