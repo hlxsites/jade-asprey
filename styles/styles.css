@@ -6,6 +6,7 @@
 
 /* colors */
 --color-gray: #817C89;
+--color-accessible-gray: #5A585F;
 --color-black: #000;
 --color-deep-violet: #405;
 --background-color: #FFF;
@@ -357,6 +358,10 @@ main .section.highlight h1 {
     color: var(--highlight-background-color);
     text-align: center;
     margin: 18px var(--layout-margin-small);
+}
+
+.description .columns >div >div:first-child >p {
+    color: var(--color-accessible-gray);
 }
 
 .section.highlight .columns >div >div >p:nth-child(2) {
