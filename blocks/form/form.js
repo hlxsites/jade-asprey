@@ -69,10 +69,7 @@ function constructPayload(form) {
     if (fe.type === 'checkbox') {
       if (fe.checked) {
         if (payload[fe.name]) {
-          const checkData = [];
-          checkData.push(payload[fe.name]);
-          checkData.push(fe.value);
-          payload[fe.name] = checkData;
+          payload[fe.name] = `${payload[fe.name]},${fe.value}`;
         } else {
           payload[fe.name] = fe.value;
         }
