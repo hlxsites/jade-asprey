@@ -67,7 +67,16 @@ function constructPayload(form) {
   const payload = {};
   [...form.elements].forEach((fe) => {
     if (fe.type === 'checkbox') {
-      if (fe.checked) payload[fe.name] = fe.value;
+      if (fe.checked) {
+        if (payload[fe.name]) {
+          const checkData = [];
+          checkData.push(payload[fe.name]);
+          checkData.push(fe.value);
+          payload[fe.name] = checkData;
+        } else {
+          payload[fe.name] = fe.value;
+        }
+      }
     } else if (fe.name) {
       payload[fe.name] = fe.value;
     }
@@ -147,6 +156,9 @@ function createInput(fd) {
     input.setAttribute('oninput', 'this.setCustomValidity(\'\')');
   }
   input.setAttribute('placeholder', fd.Placeholder);
+  if (fd.Type === 'checkbox') {
+    input.setAttribute('value', fd.Label);
+  }
   if (fd.Mandatory === 'x') {
     input.setAttribute('required', 'required');
   }
