@@ -360,6 +360,10 @@ main .section.highlight h1 {
     margin: 18px var(--layout-margin-small);
 }
 
+.description .columns >div >div:first-child >p {
+    color: var(--color-accessible-gray);
+}
+
 .section.highlight .columns >div >div >p:nth-child(2) {
     color: #000;
 }
@@ -433,10 +437,6 @@ main .section.narrow h1 {
 .description .columns >div >div:first-child {
     padding-left: var(--layout-margin-small);
     padding-right: var(--layout-margin-small);
-}
-
-.description .columns >div >div:first-child >p {
-    color: var(--color-accessible-gray);
 }
 
 @media screen and (min-width: 601px) {
