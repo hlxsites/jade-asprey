@@ -184,7 +184,6 @@ a.button:any-link, button {
   color: var(--background-color);
   background-color: var(--color-deep-violet);
   margin: 16px 0;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
@@ -525,7 +524,7 @@ main .section.narrow h1 {
 }
 
 @media screen and (min-width: 620px) {
-    .inquire .columns >div >div >h3 {
+    .inquire .columns >div >div >h3, .inquire .columns >div >div >p {
         margin-left: var(--layout-margin-large);
         margin-right: var(--layout-margin-large);
     }

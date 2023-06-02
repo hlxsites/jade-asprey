@@ -45,15 +45,13 @@ main .form select:hover {
   border-color: rgb(90 92 96);
 }
 
-/* main .form label {
-  width: 100%;
-  font-size: var(--type-body-s-size);
-  line-height: var(--type-body-s-lh);
-  padding-bottom: var(--spacing-xs);
-  text-transform: uppercase;
-  box-sizing: border-box;
-  font-weight: 800;
-} */
+main .form label {
+  color: var(--color-black);
+}
+
+main .form p {
+  color: var(--color-black);
+}
 
 /* main .form label.required::after {
   content: "*";
