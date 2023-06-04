@@ -332,9 +332,6 @@ main .section.highlight h1 {
 }
 
 @media screen and (min-width: 620px) {
-    .column-light .columns >div >div >h2,
-    .column-light .columns >div >div >h3,
-    .column-light .columns >div >div >h5,
     .column-light .columns >div >div >p {
         margin-left: var(--layout-margin-large);
         margin-right: var(--layout-margin-large);
@@ -390,9 +387,15 @@ main .section.deep-background h1 {
 @media screen and (min-width: 620px) {
     main .section.deep-background h1 {
         font-size: 60px;
-        margin-left: 72px;
-        margin-right: 72px;
     }
+}
+
+@media screen and (max-width: 900px) {
+  main .section.deep-background h1 {
+      font-size: 40px;
+      margin-left: 25px;
+      margin-right: 25px;
+  }
 }
 
 main .section.deep-background a.button.primary, button.primary {
