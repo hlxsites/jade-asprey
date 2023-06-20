@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# Jade.Asprey.com
+Micro site dedicated to Jadeite for Asprey
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--jade-asprey--hlxsites.hlx.page/
+- Live: https://main--jade-asprey--hlxsites.hlx.live/
 
 ## Installation
 

@@ -27,6 +27,20 @@ export default async function decorate(block) {
       if (section) section.classList.add(`nav-${c}`);
     });
 
+    // decorate logo with link
+    const navBrand = nav.querySelector('.nav-brand');
+    if (navBrand) {
+      navBrand.querySelectorAll('p').forEach((p) => {
+        p.classList.add('nav-brand-logo');
+        const logoLink = p.querySelector('a');
+        const logoImage = p.querySelector('picture');
+        if (logoLink && logoImage) {
+          logoLink.innerHTML = logoImage.innerHTML;
+          logoImage.remove();
+        }
+      });
+    }
+
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
