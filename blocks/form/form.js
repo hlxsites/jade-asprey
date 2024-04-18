@@ -264,8 +264,8 @@ export default async function decorate(block) {
   const links = block.querySelectorAll('a');
   const submitURL = links?.length > 1 ? links[1] : null;
   if (form) {
-    form.replaceWith(await createForm(form.href, submitURL.href));
-    submitURL.parentNode.remove(submitURL);
+    form.replaceWith(await createForm(form.href, submitURL?.href));
+    submitURL?.parentNode.remove(submitURL);
   }
   const successDiv = block.querySelector('div>div:nth-child(2)');
   if (successDiv) {
