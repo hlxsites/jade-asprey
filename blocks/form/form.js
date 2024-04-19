@@ -203,14 +203,14 @@ function applyRules(form, rules) {
   });
 }
 
-async function createForm(formURL) {
+async function createForm(formURL, submitURL) {
   const { pathname } = new URL(formURL);
   const resp = await fetch(pathname);
   const json = await resp.json();
   const form = document.createElement('form');
   const rules = [];
   // eslint-disable-next-line prefer-destructuring
-  form.dataset.action = pathname.split('.json')[0];
+  form.dataset.action = submitURL ?? pathname.split('.json')[0];
   json.data.forEach((fd) => {
     fd.Type = fd.Type || 'text';
     const fieldWrapper = document.createElement('div');
@@ -261,8 +261,11 @@ async function createForm(formURL) {
 
 export default async function decorate(block) {
   const form = block.querySelector('a[href$=".json"]');
+  const links = block.querySelectorAll('a');
+  const submitURL = links?.length > 1 ? links[1] : null;
   if (form) {
-    form.replaceWith(await createForm(form.href));
+    form.replaceWith(await createForm(form.href, submitURL?.href));
+    submitURL?.parentNode.remove(submitURL);
   }
   const successDiv = block.querySelector('div>div:nth-child(2)');
   if (successDiv) {
